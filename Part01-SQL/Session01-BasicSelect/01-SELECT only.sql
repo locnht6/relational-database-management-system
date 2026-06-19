@@ -39,3 +39,6 @@ SELECT YEAR(GETDATE()) - 2003 AS [My age is]
 SELECT N'Ngô Huỳnh Tấn Lộc is ' + CONVERT(nvarchar, (YEAR(GETDATE()) - 2003)) + ' years old.' AS [My profile]
 
 SELECT N'Ngô Huỳnh Tấn Lộc is ' + CAST(YEAR(GETDATE()) - 2003 AS nvarchar) + ' years old.' AS [My profile]
+
+-- 7. Phép nhân 2 số
+SELECT 10 * 10 AS [10 x 10 =]
