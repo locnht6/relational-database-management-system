@@ -14,7 +14,7 @@ USE Northwind
 -- Tên cột.
 -- Value của cột (cell).
 -- Toán tử (operator) > >= < <= = != <> (!= hoặc <> đều là khác nhau),
--- nhiều điều kiện lọc đi lèm, dùng thêm logic operators, AND, OR, NOT.
+-- nhiều điều kiện lọc đi kèm, dùng thêm logic operators, AND, OR, NOT.
 -- Ví dụ: WHERE City = N'Bình Dương'
 --		  WHERE City = N'Hà Nội' AND Gpa >= 8
 
@@ -97,3 +97,14 @@ SELECT * FROM Orders WHERE Freight >= 100 AND Freight <= 500 AND ShipVia = 1 ORD
 
 -- 17. Và không ship tới London.
 SELECT * FROM Orders WHERE Freight >= 100 AND Freight <= 500 AND ShipVia = 1 AND ShipCity != 'London' ORDER BY Freight DESC -- 50 rows
+SELECT * FROM Orders WHERE Freight >= 100 AND Freight <= 500 AND ShipVia = 1 AND NOT(ShipCity = 'London') ORDER BY Freight DESC -- 50 rows
+
+-- 18. Liệt kê khách hàng đến từ Mĩ hoặc Mexico.
+SELECT * FROM Customers WHERE Country = 'USA' OR Country = 'Mexico' ORDER BY Country -- 18 rows
+
+-- 19. Liệt kê khách hàng không đến từ Mĩ hoặc Mexico.
+SELECT * FROM Customers WHERE NOT(Country = 'USA' OR Country = 'Mexico') ORDER BY Country -- 73 rows
+SELECT * FROM Customers WHERE Country <> 'USA' AND Country <> 'Mexico' ORDER BY Country -- 73 rows
+
+-- 20. Liệt kê các nhân viên sinh ra trong đoạn [1960, 1970]
+SELECT * FROM Employees WHERE YEAR(BirthDate) >= 1960 AND YEAR(BirthDate) <= 1970 ORDER BY BirthDate -- 4 rows
