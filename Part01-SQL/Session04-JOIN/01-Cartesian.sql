@@ -13,10 +13,13 @@ CREATE TABLE EnDict	-- DDL (một nhánh của SQL)
 -- 1 One
 -- 2 Two
 -- CHÈN DATA
-SELECT * FROM EnDict					    -- DML: Data Manapulation Language
+SELECT * FROM EnDict					    -- DML: Data Manipulation Language
 INSERT INTO EnDict VALUES(1, 'One')
 INSERT INTO EnDict VALUES(2, 'Two')
 INSERT INTO EnDict VALUES(3, 'Three')
+
+-- PHẦN NÀY THÊM CHO OUTER JOIN
+INSERT INTO EnDict VALUES(4, 'Four')
 
 CREATE TABLE VnDict	-- DDL (một nhánh của SQL)
 (
@@ -27,6 +30,7 @@ CREATE TABLE VnDict	-- DDL (một nhánh của SQL)
 INSERT INTO VnDict VALUES(1, N'Một')
 INSERT INTO VnDict VALUES(2, N'Hai')
 INSERT INTO VnDict VALUES(3, N'Ba')
+INSERT INTO VnDict VALUES(5, N'Năm')
 
 SELECT * FROM VnDict
 SELECT * FROM EnDict
