@@ -126,3 +126,52 @@ CREATE TABLE StudentV5 (
 INSERT INTO StudentV5 VALUES('SE123456', 'Nguyen', 'An')
 
 SELECT * FROM StudentV5
+
+-------------------------------------------------------------------------------------------------------
+-- CONSTRAINTS - TRONG ĐÓ CÓ PK CONSTRAINT
+-- Ràng buộc là cách ta/db designer ép cell/cột nào đó value phải như thế nào.
+-- Đặt ra quy tắc/rule cho việc nhập data.
+-- Vì có nhiều quy tắc, nên tránh nhầm lẫn, dễ kiểm soát ta sẽ có quyền đặt tên cho các quy tắc, constraint name.
+-- Vd: Má ở nhà đặt quy tắc/nội quy cho mình:
+-- Rule #1: Vào SG học thật tốt nha con. Tốt: điểm tb >= 8.0 && không rớt môn nào
+--			&& 9 học kì ra trường && không đổi chuyên ngành.
+-- Rule #2: Tối đi chơi về nhà sớm. Sớm: trong tối cùng ngày, trước 10h.
+-- Rule #3: ...
+-- Tên ràng buộc/quy tắc:	nội dung/cái data được gài vào.
+-- PK_???						PRIMARY KEY
+-- Mặc định các DB Engine tự đặt tên cho các ràng buộc nó thấy khi bạn gõ lệnh DDL.
+-- DB Engine cho mình cơ chế tự đặt tên ràng buộc.
+
+CREATE TABLE StudentV6
+(
+	StudentID char(8) NOT NULL, 
+	LastName nvarchar(40) NOT NULL, 
+	FirstName nvarchar(10) NOT NULL,
+	DOB datetime NULL,
+	Address nvarchar(50) NULL,
+	-- PRIMARY KEY(StudentID) -- tự db engine đặt tên cho ràng buộc
+	CONSTRAINT PK_STUDENTV6 PRIMARY KEY (StudentID)
+)
+
+-- DÂN PRO ĐÔI KHI CÒN LÀM CÁCH SAU, NGƯỜI TA TÁCH HẲN VIỆC TẠO RÀNG BUỘC KHÓA CHÍNH, KHÓA NGOẠI
+-- RA HẲN CẤU TRÚC TABLE, TỨC LÀ CREATE TABLE CHỈ CHỨA TÊN CẤU TRÚC - CỘT - DOMAIN.
+-- TẠO TABLE XONG RỒI CHỈNH SỬA TABLE - SỬA CÁI TỦ CHỨ KHÔNG PHẢI DATA TRONG TỦ.
+
+DROP TABLE StudentV7
+CREATE TABLE StudentV7
+(
+	StudentID char(8) NOT NULL, 
+	LastName nvarchar(40) NOT NULL, 
+	FirstName nvarchar(10) NOT NULL,
+	DOB datetime NULL,
+	Address nvarchar(50) NULL,
+	-- PRIMARY KEY(StudentID) -- tự db engine đặt tên cho ràng buộc
+	-- CONSTRAINT PK_STUDENTV7 PRIMARY KEY (StudentID)
+)
+
+ALTER TABLE StudentV7 ADD CONSTRAINT PK_STUDENTV7 PRIMARY KEY (StudentID)
+
+-- XÓA 1 RÀNG BUỘC ĐƯỢC KHÔNG, ĐƯỢC, CHO ADD THÌ CHO DROP.
+ALTER TABLE StudentV7 DROP CONSTRAINT PK_STUDENTV7
+
+ALTER TABLE StudentV2 DROP CONSTRAINT PK__StudentV__32C52A798E55472E

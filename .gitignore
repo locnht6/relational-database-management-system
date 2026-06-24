@@ -1,2 +1,2 @@
-# Ignore Visual Paradigm backup files
-*.vpp.bak
+# Visual Paradigm backup files
+*.vpp.bak*
