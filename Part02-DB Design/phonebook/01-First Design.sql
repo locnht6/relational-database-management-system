@@ -48,4 +48,4 @@ INSERT INTO PhoneBookV1 VALUES (N'dungpham', '090x - 091x - 092x')
 -- THIẾT KẾ KÉM THÌ PHẢI NÂNG CẤP, KHÔNG CHƠI ĐA TRỊ NỮA!
 -- KHÔNG CHƠI GOM VALUE TRONG 1 CELL.
 -- 2 CHIẾN LƯỢC FIX:
--- CHIỀU NGANG, CHIỀU DỌC.
+-- CHIỀU NGANG (thêm cột), CHIỀU DỌC (thêm dòng!!!).
